@@ -1,0 +1,81 @@
+#calendar-body{
+    width:50%;
+    min-height:50%;
+    border:black solid 2px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+#calendar-weekdays{
+    width:50%;
+    height:5%;
+    border:black solid 2px;
+    display:flex;
+    justify-content: center;
+}
+#goal-modal{
+    position:absolute;
+    width:40%;
+    min-height: 40%;
+    top:25%;
+    border:#ED9121 solid 4px;
+    border-radius: 10px;
+    background-color: white;
+}
+#goal-modal-incomplete{
+    border:steelblue solid 2px;
+
+}
+#goal-modal-complete{
+    border:lawngreen solid 2px;
+}
+.calendar-weekday{
+    display:flex;
+    justify-content: center;
+    width:14%;
+    border-left:black solid 1px;
+    border-right:black solid 1px;
+}
+.calendar-weekday-leftBorder{
+    display:flex;
+    justify-content: center;
+    width:14%;
+    border-left:black solid 1px;
+}
+.calendar-weekday-rightBorder{
+    display:flex;
+    justify-content: center;
+    width:14%;
+    border-right:black solid 1px;
+}
+.cal-day{
+    width:14%;
+    height:20%;
+    border:black solid 1px;
+}
+.empty-day{
+    width:14%;
+    height:20%;
+    border:white solid 1px;
+}
+.container{
+    border:#DDC765 solid 2px;
+    padding:5px;
+}
+.container-toggle{
+    border:#DDC765 solid 2px;
+    padding:5px;
+    position:absolute;
+    top:25%;
+    background-color: white;
+}
+.close-modal{
+    background-color:red;
+    color:white;
+    border-radius:50%;
+}
+.hidden{
+    opacity:0;
+    pointer-events: none;
+}

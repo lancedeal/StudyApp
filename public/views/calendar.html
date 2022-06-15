@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendar</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mukta&family=Nunito&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/styles.css">
+    <link rel="stylesheet" href="../styles/calendarstyles.css">
+</head>
+<body>
+    <nav>
+        <a href="../index.html">Home</a>
+        <a href="/flashcards">Flash Cards</a>
+        <a href="/quiz">Quiz</a>
+    </nav>
+    <h1 class="calendar-header"></h1>
+    <div id="calendar-weekdays">
+        <div class="calendar-weekday-rightBorder">Sunday</div>
+        <div class="calendar-weekday">Monday</div>
+        <div class="calendar-weekday">Tuesday</div>
+        <div class="calendar-weekday">Wednesday</div>
+        <div class="calendar-weekday">Thursday</div>
+        <div class="calendar-weekday">Friday</div>
+        <div class="calendar-weekday-leftBorder">Saturday</div>
+    </div>
+    <div id="calendar-body">
+    </div>
+
+    <!-- Goal Modal -->
+    <div id="goal-modal" class="hidden">
+        <div id="close-goal-modal" class="close-modal">X</div>
+        <h2 id="goal-modal-header"></h2>
+        <div id="goal-modal-data">
+            <div id="goal-modal-incomplete">
+                <h2>Incomplete</h2>
+            </div>
+            <div id="goal-modal-complete">
+                <h2>Complete</h2>
+            </div>
+        </div>
+    </div>
+
+    <div id="cal-btns">
+        <div id="goal-btns">
+            <button id="createGoal-btn">Create Goal</button>
+            <button id="viewGoal-btn">View Goals</button>
+            <button id="updateGoal-btn">Update Goal</button>
+            <button id="removeGoal-btn">Remove Goals</button>
+        </div>
+    </div>
+    <div id="manager">
+        <div id="goal-create" class="container hidden">
+            <form method="POST">
+                <input name='id' value="create" type="hidden">
+                <label for="goalEntry">Enter Goal:</label>
+                <input name="goalEntry" required>
+                <label for="completionDate">Completion Date:</label>
+                <input name="completionDate" type="date" required>
+                <button>Create</button>
+            </form>
+        </div>
+        <div id="goal-view" class="container hidden">
+            <h2>Completed Goals</h2>
+            <div id="completed-goals">
+                <% if(comGoals){ %>
+                <% comGoals.forEach(element => { %>
+                    <p class="complete-goal-element">ID: <%= element.goal_id %> | <%= element.goal %> | <span class='complete-goal-dates'><%= element.end_date %></span></p>
+                <% })} %>
+            </div>
+            <h2>Incomplete Goals</h2>
+            
+            <% if(incomGoals){ %>
+            <% incomGoals.forEach(element => { %>
+                <p class="goal-element">ID: <%=element.goal_id%> | <%= element.goal %> | <span class="goal-dates"><%=element.end_date %></span></p>
+            <% })}; %>
+            <div id="incomplete-goals"></div>
+        </div>
+        <div id="goal-update" class="container hidden">
+            <form method="POST">
+                <input name="id" value="update" type="hidden">
+                <label for="goalId">ID:</label>
+                <input name="goalId" required>
+                <button>Update</button>
+            </form>
+        </div>
+        <div id="goal-remove" class="container hidden">
+            <form method="POST">
+                <input name="id" value="delete" type="hidden">
+                <label for="goalId">ID:</label>
+                <input name="goalId" required>
+                <button>Remove</button>
+            </form>
+        </div>
+    </div>
+    <script src="../scripts/calendar.js"></script>
+</body>
+</html>
